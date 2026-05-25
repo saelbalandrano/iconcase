@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="es" style=""><head>
+<html class="dark" lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Icon Case | Showcase de Protección y Estilo</title>
@@ -189,51 +189,90 @@
         .map-glow {
             filter: drop-shadow(0 0 15px rgba(191, 238, 96, 0.3));
         }
+
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.active {
+            transform: translateX(0);
+        }
     </style>
 </head>
 <body class="font-body-md text-body-md">
 <!-- TopAppBar -->
-<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 bg-background/50 backdrop-blur-xl border-b border-white/10 transition-all duration-300" id="main-nav">
-<div class="flex items-center">
-<img alt="Icon Case Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6-UE-WNiMgmA0VZFic1yt2jBNK9LOyzUZizK6B0tDDZ-rZSYDQZJ4pxBUgImUSySZZ11jgTSt-CMT9LW4kQMeRoc7LIqpmeXMF8cps-wgfqI-ISShee-YtMzc3oP7jJCMXLI7TsI4R1QE-6yGjLlO5L1lB6CW-6zaR-kOMay8q-HAjcqw8oFgtC39Be-gacQAgm8GcWSCTGrw7kwkm1MVlOVWZ8XHVtQlhecYVF9MyLxe1n77p-NRsJwoaQddi9ucHKsMMUcdfKA"/>
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 md:h-20 bg-background/50 backdrop-blur-xl border-b border-white/10 transition-all duration-300" id="main-nav">
+<div class="flex items-center gap-sm">
+<button class="md:hidden p-2 text-primary active:scale-90 transition-transform" id="menu-toggle">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<img alt="Icon Case Logo" class="h-8 md:h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6-UE-WNiMgmA0VZFic1yt2jBNK9LOyzUZizK6B0tDDZ-rZSYDQZJ4pxBUgImUSySZZ11jgTSt-CMT9LW4kQMeRoc7LIqpmeXMF8cps-wgfqI-ISShee-YtMzc3oP7jJCMXLI7TsI4R1QE-6yGjLlO5L1lB6CW-6zaR-kOMay8q-HAjcqw8oFgtC39Be-gacQAgm8GcWSCTGrw7kwkm1MVlOVWZ8XHVtQlhecYVF9MyLxe1n77p-NRsJwoaQddi9ucHKsMMUcdfKA"/>
+<span class="md:hidden font-display-lg text-lg font-bold tracking-tighter text-primary">ICON CASE</span>
 </div>
-<div class="flex items-center gap-md">
-<a class="bg-primary text-on-primary font-display-lg font-bold px-lg py-sm rounded-full scale-95 active:scale-90 transition-transform btn-pulse flex items-center gap-2" href="https://wa.me/528712759598?text=Quiero%20ser%20distribuidor%20IconCase">
+<!-- Desktop Nav Links -->
+<div class="hidden md:flex items-center gap-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-md tracking-widest" href="#hero">Inicio</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-md tracking-widest" href="#products">Hardware</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-md tracking-widest" href="#presence">Presencia</a>
+<a class="bg-primary text-on-primary font-bold px-lg py-sm rounded-full scale-95 active:scale-90 transition-transform btn-pulse flex items-center gap-2" href="https://wa.me/528712759598?text=Quiero%20ser%20distribuidor%20IconCase">
 <span class="material-symbols-outlined text-sm">chat</span>
                 Contacto
             </a>
 </div>
+<!-- Mobile Contact Button -->
+<div class="md:hidden">
+<a class="text-primary font-bold uppercase tracking-widest text-label-sm" href="https://wa.me/528712759598">Contacto</a>
+</div>
 </nav>
+<!-- Mobile Slide-out Menu -->
+<div class="fixed inset-0 z-[60] pointer-events-none" id="mobile-menu-container">
+<div class="absolute inset-0 bg-background/80 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="menu-overlay"></div>
+<div class="absolute right-0 top-0 h-full w-64 bg-surface-container shadow-xl pointer-events-auto" id="mobile-menu">
+<div class="p-lg flex flex-col h-full">
+<div class="flex justify-end mb-lg">
+<button class="p-2 text-primary" id="menu-close">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-lg items-center text-center">
+<a class="text-headline-md font-bold text-on-surface hover:text-primary transition-colors close-menu" href="#hero">Inicio</a>
+<a class="text-headline-md font-bold text-on-surface hover:text-primary transition-colors close-menu" href="#products">Hardware</a>
+<a class="text-headline-md font-bold text-on-surface hover:text-primary transition-colors close-menu" href="#presence">Presencia</a>
+<a class="bg-primary text-on-primary w-full py-4 rounded-xl font-bold close-menu" href="#contacto">Contacto</a>
+</nav>
+</div>
+</div>
+</div>
 <!-- Hero Section -->
-<section class="relative h-screen flex items-center justify-center overflow-hidden px-margin-desktop" id="hero">
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden px-margin-mobile md:px-margin-desktop py-xl" id="hero">
 <div class="absolute inset-0 z-0 overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background z-10"></div>
-<img class="w-full h-full object-cover opacity-40 scale-110 will-change-transform" data-alt="A cinematic close-up of a sleek black smartphone case with luminous lime green accents" id="hero-parallax-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBC_lxQfUJBSnvBcF5XxaJ_SMesPo7xhBcyAQhahBzHo8v6NY36IlCBIayZREj4icFKnvimjGhYD9RjTkjdzZRsrJn4C1IeiIrSq9AafrZmYJDrmS2ZgdTH4A65ni7RLqg3-XEdEO9R4A_ROPWJzoPejz0Xzz954wbcgcB_DQ67-aAnWlqpeRlCsqQNBLPuR21ACWHvNHWyjG_HmykS1D9threP0lcAWP_gtrCCKNoB1AUjeZhxAwPCEIxLO22a7v_z1b5ihjuGY8"/>
+<img class="w-full h-full object-cover opacity-40 scale-110 will-change-transform" id="hero-parallax-img" src="https://lh3.googleusercontent.com/aida/ADBb0uggyB1MWerJbIEle7SJlA1LVS9A145Vmx9mIWjuXv4Hee8xuPXnab5KhmF9565d7DRKVNwSa9Y0cxoJMQxTR61debFSkyJXOynGZUeR2TThnW_d0q41ho1TZzX29XoLMG3pjj563DXnViOaJlO5tmAlC6LAFUsbxIGJed1YQEX3S3EieFtFMh2i2NB7gT7Iq1splGV_NIsfUoe7XAbsc_IeaUjHsmyiHXBZ8mh6xuxtxIIwzjzLhuT4hYM"/>
 </div>
 <div class="relative z-10 text-center max-w-5xl mx-auto flex flex-col items-center">
 <div class="mb-lg float-slow">
-<img alt="Icon Case Logo" class="h-40 md:h-56 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6-UE-WNiMgmA0VZFic1yt2jBNK9LOyzUZizK6B0tDDZ-rZSYDQZJ4pxBUgImUSySZZ11jgTSt-CMT9LW4kQMeRoc7LIqpmeXMF8cps-wgfqI-ISShee-YtMzc3oP7jJCMXLI7TsI4R1QE-6yGjLlO5L1lB6CW-6zaR-kOMay8q-HAjcqw8oFgtC39Be-gacQAgm8GcWSCTGrw7kwkm1MVlOVWZ8XHVtQlhecYVF9MyLxe1n77p-NRsJwoaQddi9ucHKsMMUcdfKA"/>
+<img alt="Icon Case Logo" class="h-32 md:h-56 object-contain brightness-110 drop-shadow-[0_0_20px_rgba(164,209,71,0.3)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6-UE-WNiMgmA0VZFic1yt2jBNK9LOyzUZizK6B0tDDZ-rZSYDQZJ4pxBUgImUSySZZ11jgTSt-CMT9LW4kQMeRoc7LIqpmeXMF8cps-wgfqI-ISShee-YtMzc3oP7jJCMXLI7TsI4R1QE-6yGjLlO5L1lB6CW-6zaR-kOMay8q-HAjcqw8oFgtC39Be-gacQAgm8GcWSCTGrw7kwkm1MVlOVWZ8XHVtQlhecYVF9MyLxe1n77p-NRsJwoaQddi9ucHKsMMUcdfKA"/>
 </div>
-<h1 class="font-display-lg text-display-lg mb-md lime-glow reveal uppercase active">
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg mb-md lime-glow reveal uppercase active">
                 LA PROTECCIÓN <span class="text-primary italic">CONOCE AL</span> ESTILO
             </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-lg reveal active" style="transition-delay: 0.1s;">
+<p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-2xl mb-lg reveal active" style="transition-delay: 0.1s;">
                 Ingeniería de precisión. Diseñado para los audaces. Experimenta la fusión definitiva de rendimiento y estética con la nueva serie Icon Case.
             </p>
-<div class="flex gap-md reveal active" style="transition-delay: 0.2s;">
-<a class="bg-primary px-xl py-md rounded-full text-on-primary font-display-lg font-bold hover:scale-105 transition-all shadow-[0_0_30px_rgba(191,238,96,0.3)] btn-pulse" href="#products">
+<div class="flex flex-col md:flex-row gap-md reveal active w-full md:w-auto" style="transition-delay: 0.2s;">
+<a class="bg-primary px-xl py-md rounded-full text-on-primary font-bold hover:scale-105 transition-all shadow-[0_0_30px_rgba(191,238,96,0.3)] btn-pulse text-center" href="#products">
                     Explorar Showcase
                 </a>
 </div>
 </div>
 <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-xs text-on-surface-variant opacity-50">
-<span class="font-label-sm uppercase tracking-widest">Desliza para descubrir</span>
+<span class="font-label-sm uppercase tracking-widest">Desliza</span>
 <span class="material-symbols-outlined animate-bounce">expand_more</span>
 </div>
 </section>
 <!-- Products Section -->
-<section class="py-xl px-margin-desktop bg-surface-container-low" id="products">
-<div class="max-w-7xl mx-auto reveal active">
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="products">
+<div class="max-w-7xl mx-auto reveal">
 <div class="flex flex-col mb-lg text-center items-center">
 <span class="text-primary font-label-md uppercase tracking-[0.2em] mb-xs">Nuestra Línea Elite</span>
 <h2 class="font-display-lg text-headline-lg">SOLUCIONES DE HARDWARE</h2>
@@ -242,132 +281,166 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
 <!-- Fundas -->
 <div class="product-card rounded-xl overflow-hidden group">
-<div class="relative h-72 overflow-hidden">
-<img alt="Fundas Elite" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf9Jsw6NTg-n2byFmsK3HqYa46s1iGhk2Vg28Aqou1gBduWB7troVzpWW3Rjl5Z1Tt7xYOYrUc2-SHD0Fg2N5dJMSZ0trGH_4GytdgHJU37uKd78xPirNVfs4v6dNCM4ZHJojDkBGVZeYwa1WeCr-I2wfenzzWhwNbDHyLZzz9C8dZkpzcLHLxgYUYQ4ElN8Xo5QOtm_MqTEktoaKSPumR30BqYCjfk3nPkC7K0z1J4OKnFalC0tfmkMK1UiWAVcku8G_W5pDmCwg"/>
+<div class="relative h-64 md:h-72 overflow-hidden">
+<img alt="Fundas para celulares" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/ADBb0uj5k88wLVHZ_RkHsblaKf5Fdc3sMYc73ZshTqhQeTV_HasryVu53uJGf_HSkBtbv1EqposYs-C3M8DJCubg2SCzz2jhuJT62IoGaGmmMBs68tZdEEoiUATCGe46nOesKPAc9mpkejgdahl1rsX8hRFL4CnKp_FZWeWyVaZqsWQ6Q9h7V283fNNpeKoOD7yl08fO8M_VXXMNKo_43uesZjXIhJygWxiqotV5acHMI1Nfmr50Mzu3tK7frHw"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
 </div>
-<div class="p-lg">
-<h3 class="font-display-lg text-headline-md mb-sm text-on-surface">Fundas para celulares</h3>
-<p class="text-on-surface-variant font-body-md">Protección de alto impacto con materiales de grado aeroespacial y acabados premium.</p>
+<div class="p-md md:p-lg flex justify-between items-center">
+<div>
+<h3 class="font-display-lg text-headline-md mb-xs md:mb-sm text-on-surface">Fundas para celulares</h3>
+<p class="text-on-surface-variant font-body-md text-sm md:text-base">Protección de alto impacto con materiales de grado aeroespacial.</p>
+</div>
+<span class="material-symbols-outlined text-primary md:hidden">arrow_forward</span>
 </div>
 </div>
 <!-- Cargadores -->
 <div class="product-card rounded-xl overflow-hidden group">
-<div class="relative h-72 overflow-hidden">
-<img alt="Cargadores Inteligentes" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAemBnFngLBXPmYZk0za7-sKiqzsT2cdnXGpGC82-0cuWDZlCPGjDvmdyZ_2DpCy-xZINWT_p4fo7HLOCdFPNZr6C2Lm6dnUQ4t0HmMgCiOTh65neKOzfsNX3wxsYIQoZJefVQ1pVdSL8AVPy6WNQUNN2jzP__tdg4FOG530xLxN5DWpDBOe7W2Pc2YLs74qusBxolLnn_A8GnWzGbALJcs7cPiqbXD-p_vn2q2Sna_qJ-Z5z4cWIfiJzHCA0MVCi8JIKr_pJZ7og"/>
+<div class="relative h-64 md:h-72 overflow-hidden">
+<img alt="Cargadores Inteligentes" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/ADBb0uj_3d_E74H1z4N0fnpfXe1YOpoSN3q5HNeXzaMI1p9TjVqPzCHG-8GhgPxAciUpALM092QvEIsu9PG7WAQYv6f2bMajrHUH94DD0vFzmEldWLcmeJGjrhqtg6yAjA2fz-JuupBqIV_NjsLNmwmMG9s_CyvqM5EXqnAXNyBaPGJNO4UTs0lWyHRJfO5s3wiMfCBqzOiMvKnKk-xMgHtyirniwnI3uzhnK6zp1NbtLcTuMD3et0yiXrkGMw"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
 </div>
-<div class="p-lg">
-<h3 class="font-display-lg text-headline-md mb-sm text-on-surface">Cargadores para celulares</h3>
-<p class="text-on-surface-variant font-body-md">Tecnología de carga ultra-rápida inteligente con gestión térmica avanzada.</p>
+<div class="p-md md:p-lg flex justify-between items-center">
+<div>
+<h3 class="font-display-lg text-headline-md mb-xs md:mb-sm text-on-surface">Cargadores para celulares</h3>
+<p class="text-on-surface-variant font-body-md text-sm md:text-base">Tecnología de carga ultra-rápida inteligente.</p>
+</div>
+<span class="material-symbols-outlined text-primary md:hidden">bolt</span>
 </div>
 </div>
 <!-- Cables -->
 <div class="product-card rounded-xl overflow-hidden group">
-<div class="relative h-72 overflow-hidden">
-<img alt="Cables Reforzados" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAICjCLn8YOx1OuIU5U7U8G-ljAZcqOOCH_x_4fc0LvYYve9iigi1dvyWUmHd0yc-mKRF6ur2bDW5RomAbm6Fik8jX2wuVoPH2VeF6sDHlGeYxTH2rZDgg4WGhG14GndYK3uazJuW7DFB_8-O9SlagD74qW7xLavHnugbJlFuCt_z8ksKpfx9ARO0aPCLBa2WI6_f8Cs8u7lJ6539EmT5ZCLLHPWxn8hh4xIAoVZpaRcDIFdgLIkvIUZhYTMZQ5lGMIM21J7BV_4BY"/>
+<div class="relative h-64 md:h-72 overflow-hidden">
+<img alt="Cables Reforzados" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/ADBb0uhD8nRW6rZS1X1NuI9jau0qjTqdD1iskHmBYo9CQjMJYKhWENMs2FAskhG3KCvG2iogzDlasfLB_aP2m2qG60kInQAGtz0_yTZTR42eXqDJOePAGYLYxRkwRwzssm9T9qaRK52hnj3B18-OPiwfL_GTaXKfhsn9o4YXzU7N3dp5dh2tIWwAkVJNMmDTMb8WoH6dwGMT4KQGn7E_Re7vwD9ABJXf5WGhHtiqdYRio7t5pVXb1tOesO3TUQ"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
 </div>
-<div class="p-lg">
-<h3 class="font-display-lg text-headline-md mb-sm text-on-surface">Cables para celulares</h3>
-<p class="text-on-surface-variant font-body-md">Núcleos de Kevlar y conectores de aleación para una vida útil 10x superior.</p>
+<div class="p-md md:p-lg flex justify-between items-center">
+<div>
+<h3 class="font-display-lg text-headline-md mb-xs md:mb-sm text-on-surface">Cables para celulares</h3>
+<p class="text-on-surface-variant font-body-md text-sm md:text-base">Núcleos reforzados para una vida útil 10x superior.</p>
+</div>
+<span class="material-symbols-outlined text-primary md:hidden">cable</span>
 </div>
 </div>
 <!-- Hidrogel -->
 <div class="product-card rounded-xl overflow-hidden group">
-<div class="relative h-72 overflow-hidden">
-<img alt="Máquinas de Hidrogel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHcqX_b5-HB40z7fRt1cZAcYyLQLgTlx5B1XUudFXeITwZKCdQiEQSx04pyahNlvcnVdc4WOzaMak9TJHcVe3NjD53c2hxRry97qzBX7DDsKNkqWYCo7FOLDSxQIOxyUQNk_pM2QLAbjxrccGFPyHXagdxX62HmQK5WA6HOeGnLcIm5MYgqnjpHwrAQHBro_zrUYRpa0rI5Umc7waX83YmQI5DQhWZNN6X4cb6nBTXo0NrBOmnCVOcrJgOMlm24rMH4tkQmJTDmfc"/>
+<div class="relative h-64 md:h-72 overflow-hidden">
+<img alt="Láminas y Hidrogel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/ADBb0uidgryI3xCk2Xa-_0dH6-jvWosCJlRwapVi4LgsK9vtVS2LTxaw5ZkelnaHgdbehjcJZpuGK5QsapGFqo8jjKFoq1lxd0v6AM-0kqmDGzRqnx5dzFwn-QJA8UiQx_l0JMvN8lKkLIgnd6fS4rkO5PDksKdbIl0AP5vbqraxWVxIN3qPob7rSz2WfrR1nprtK_1JPNe4qVsOqhUcKCf7torcJQv8IA-aMWVTP3HzukJo8jxRYpVto3OFnQ"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
 </div>
-<div class="p-lg">
-<h3 class="font-display-lg text-headline-md mb-sm text-on-surface">Láminas y Máquinas de Hidrogel</h3>
-<p class="text-on-surface-variant font-body-md">Sistemas de corte de precisión quirúrgica para una protección de pantalla invisible.</p>
+<div class="p-md md:p-lg flex justify-between items-center">
+<div>
+<h3 class="font-display-lg text-headline-md mb-xs md:mb-sm text-on-surface">Láminas y Hidrogel</h3>
+<p class="text-on-surface-variant font-body-md text-sm md:text-base">Sistemas de corte de precisión para una protección invisible.</p>
+</div>
+<span class="material-symbols-outlined text-primary md:hidden">precision_manufacturing</span>
 </div>
 </div>
 </div>
 </div>
 </section>
 <!-- Presence Section -->
-<section class="py-xl relative overflow-hidden bg-background">
-<div class="absolute inset-0 z-0 opacity-40">
-<img alt="Nuestra Presencia" class="w-full h-full object-cover map-glow scale-110" id="map-parallax" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK6DSVuDdWQYp5LsyixcqOI7Y5Vta6GpmElSOOrIV8PJxC_SRm4AgS-pz7tdHihum6PAqiMWApl1PSiG39VV7wEcp0kzGlg-Ys1xw_rbKT2nkqj7qhTxekWFAwiRmYmEB0e5jObnoBHbt631o8-PmFGfuvFWXFBe4U_9xfcMGqL2vs2HbvdSgQH6zSlnYtZ2HRN9slnELbOeXwjcQIMCPxF9u5QD_ttPevokjsa5shofdgIFVaMquT68ndxzCQ2Kt53oDGidLgFcw"/>
+<section class="py-xl relative overflow-hidden bg-background" id="presence">
+<div class="absolute inset-0 z-0 opacity-30 md:opacity-40">
+<img alt="Nuestra Presencia" class="w-full h-full object-cover map-glow scale-110" id="map-parallax" src="https://lh3.googleusercontent.com/aida/ADBb0ujF33lvaOAtZFrZhMVO9cSi-5BdxUW0Wz5pZYyz0FPoKoZ8hjoznedDlQroW9pOr1s-F_X_bu0EKzdrXEEvUqZirP6AqmdZD6eu4G15SPEMthWY4TkvPC3IxoOaKdLmwqSMwnJPPFvj_c-Qu7YfLzDAEfX52ORXYn2SbgGS4O7datzE-wZswqZtJqgmWnFcuvJWu8D5ApkHCB8L6idpcwS88c9lY9czDaMR8kg0n2CfM6NRGNG4LYzoIaU"/>
 <div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background"></div>
 <div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
 </div>
-<div class="relative z-10 px-margin-desktop max-w-7xl mx-auto">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
-<div class="reveal active">
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-lg md:gap-xl items-center">
+<div class="reveal">
 <span class="text-primary font-label-md uppercase tracking-[0.2em] mb-xs">Cobertura Nacional</span>
 <h2 class="font-display-lg text-headline-lg mb-lg">NUESTRA PRESENCIA</h2>
 <p class="text-on-surface-variant font-body-lg mb-lg max-w-lg">
                         Operamos estratégicamente en los puntos clave de la república para garantizar el mejor servicio y tiempos de respuesta.
                     </p>
-<div class="grid grid-cols-2 gap-md"><ul class="flex flex-col gap-sm text-on-surface"><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Coahuila</li><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Tamaulipas</li><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Sinaloa</li><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Sonora</li><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Baja California</li><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Quer		taro</li><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Guanajuato</li></ul><ul class="flex flex-col gap-sm text-on-surface"><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Durango</li><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Chihuahua</li><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Zacatecas</li><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Colima</li><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Nayarit</li><li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Puebla</li></ul></div>
+<div class="grid grid-cols-2 gap-md">
+<ul class="flex flex-col gap-sm text-on-surface text-sm md:text-base">
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Coahuila</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Tamaulipas</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Sinaloa</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Sonora</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Baja California</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Querétaro</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Guanajuato</li>
+</ul>
+<ul class="flex flex-col gap-sm text-on-surface text-sm md:text-base border-l border-white/10 pl-md md:border-0 md:pl-0">
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Durango</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Chihuahua</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Zacatecas</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Colima</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Nayarit</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Puebla</li>
+</ul>
 </div>
-<div class="hidden lg:block">
-<!-- Space occupied by the parallax background visualization -->
+</div>
+<div class="hidden lg:block relative h-96">
+<!-- High-tech map element placeholder if needed -->
 </div>
 </div>
 </div>
 </section>
-<!-- Why Us Section (What Distinguishes Us) -->
-<section class="py-xl px-margin-desktop bg-surface-container-low">
+<!-- Why Us Section -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-low">
 <div class="max-w-7xl mx-auto">
-<div class="text-center mb-xl reveal active">
+<div class="text-center mb-xl reveal">
 <span class="text-primary font-label-md uppercase tracking-[0.2em] mb-xs">Nuestros Pilares</span>
 <h2 class="font-display-lg text-headline-lg">QUÉ NOS DISTINGUE</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-<div class="glass-card p-lg rounded-xl reveal active" style="transition-delay: 0.1s;">
+<div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-md md:gap-gutter">
+<div class="glass-card p-md md:p-lg rounded-xl reveal flex flex-col items-center text-center" style="transition-delay: 0.1s;">
 <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-md">
 <span class="material-symbols-outlined text-primary">verified_user</span>
 </div>
-<h4 class="font-display-lg text-label-md mb-sm text-on-surface">Seguridad Fiscal</h4>
-<p class="text-on-surface-variant font-body-md text-sm">Cumplimiento total con normativas SAT y estándares NOM para tu total tranquilidad comercial.</p>
+<h4 class="font-display-lg text-label-md md:text-label-md mb-sm text-on-surface uppercase md:normal-case">Seguridad Fiscal</h4>
+<p class="hidden md:block text-on-surface-variant font-body-md text-sm">Cumplimiento total con normativas SAT y estándares NOM.</p>
 </div>
-<div class="glass-card p-lg rounded-xl reveal active" style="transition-delay: 0.2s;">
+<div class="glass-card p-md md:p-lg rounded-xl reveal flex flex-col items-center text-center" style="transition-delay: 0.2s;">
 <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-md">
 <span class="material-symbols-outlined text-primary">inventory_2</span>
 </div>
-<h4 class="font-display-lg text-label-md mb-sm text-on-surface">Stock Constante</h4>
-<p class="text-on-surface-variant font-body-md text-sm">Más de 100,000 unidades en inventario permanente, listos para surtir tus demandas inmediatas.</p>
+<h4 class="font-display-lg text-label-md md:text-label-md mb-sm text-on-surface uppercase md:normal-case">Stock Constante</h4>
+<p class="hidden md:block text-on-surface-variant font-body-md text-sm">Más de 100,000 unidades en inventario permanente.</p>
 </div>
-<div class="glass-card p-lg rounded-xl reveal active" style="transition-delay: 0.3s;">
+<div class="glass-card p-md md:p-lg rounded-xl reveal flex flex-col items-center text-center" style="transition-delay: 0.3s;">
 <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-md">
 <span class="material-symbols-outlined text-primary">sell</span>
 </div>
-<h4 class="font-display-lg text-label-md mb-sm text-on-surface">Precios Competitivos</h4>
-<p class="text-on-surface-variant font-body-md text-sm">Escalas de precio optimizadas que te permiten maximizar márgenes sin sacrificar calidad.</p>
+<h4 class="font-display-lg text-label-md md:text-label-md mb-sm text-on-surface uppercase md:normal-case">Precios Bajos</h4>
+<p class="hidden md:block text-on-surface-variant font-body-md text-sm">Escalas de precio optimizadas para maximizar márgenes.</p>
 </div>
-<div class="glass-card p-lg rounded-xl reveal active" style="transition-delay: 0.4s;">
+<div class="glass-card p-md md:p-lg rounded-xl reveal flex flex-col items-center text-center" style="transition-delay: 0.4s;">
 <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-md">
-<span class="material-symbols-outlined text-primary">category</span>
+<span class="material-symbols-outlined text-primary">layers</span>
 </div>
-<h4 class="font-display-lg text-label-md mb-sm text-on-surface">Variedad de Marcas</h4>
-<p class="text-on-surface-variant font-body-md text-sm">98% de cobertura en el mercado incluyendo marcas como ZTE, Nubia, Xiaomi y más.</p>
+<h4 class="font-display-lg text-label-md md:text-label-md mb-sm text-on-surface uppercase md:normal-case">Varias Marcas</h4>
+<p class="hidden md:block text-on-surface-variant font-body-md text-sm">98% de cobertura incluyendo ZTE, Xiaomi y más.</p>
 </div>
 </div>
 </div>
 </section>
 <!-- Contact Section -->
-<section class="py-xl px-margin-desktop bg-surface-container-lowest border-t border-primary/20" id="contacto">
-<div class="max-w-7xl mx-auto flex flex-col items-center text-center reveal active">
-<h2 class="font-display-lg text-headline-lg mb-md lime-glow">¿LISTO PARA ELEVAR TU NEGOCIO?</h2>
-<p class="text-on-surface-variant font-body-lg mb-xl max-w-2xl">Ponte en contacto con nuestro equipo de expertos para asesoría personalizada y catálogos exclusivos.</p>
-<div class="flex flex-col md:flex-row gap-lg w-full max-w-3xl">
-<a class="flex-1 glass-card p-lg rounded-xl group flex items-center gap-md hover:bg-primary/10 transition-colors" href="https://wa.me/528712759598?text=Quiero%20ser%20distribuidor%20IconCase"><div class="flex flex-col items-start gap-2">
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-lowest border-t border-primary/20" id="contacto">
+<div class="max-w-7xl mx-auto flex flex-col items-center text-center reveal">
+<h2 class="font-display-lg text-headline-lg mb-md lime-glow uppercase">¿LISTO PARA ELEVAR TU NEGOCIO?</h2>
+<p class="text-on-surface-variant font-body-lg mb-xl max-w-2xl">Ponte en contacto con nuestro equipo para asesoría personalizada.</p>
+<div class="flex flex-col md:flex-row gap-md md:gap-lg w-full max-w-3xl">
+<!-- WhatsApp -->
+<a class="flex-1 glass-card p-lg rounded-xl group flex items-center gap-md hover:bg-primary/10 transition-colors" href="https://wa.me/528712759598?text=Hola%20Icon%20Case">
+<div class="flex flex-col items-start gap-2 w-full">
 <img alt="Chat on WhatsApp" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5ybup04gCZuL6j0YwJojpq4ksSQRnTssQGqwx-Bv0HIlGI5IEqkQrHIwhTHTcBSzgB-7aBvCWGzEgKj9Y3MjLQNMpnobBrw_GO3E3LaKzomR996e-gdbCrQhdrStc6sSY1dxmzGMe7e8Tj9Oq0ZJpyE7cq1FW8objLVojLM8Mt2egydEtaaBzI1vdmGwPjzPwppgouA_l5vtYTZql8bzaMADYOarJOpjb5qoFCSAQh2I8em2YyawFiJRWjs5TIjQIl9Jki4c1MZ4"/>
 <div class="text-left ml-2">
 <p class="text-xs font-label-sm text-on-surface-variant uppercase">WhatsApp Business</p>
 <p class="text-lg font-bold text-on-surface">+52 871 275 9598</p>
 </div>
-</div></a>
-<a class="flex-1 glass-card p-lg rounded-xl group flex items-center gap-md hover:bg-primary/10 transition-colors" href="#">
+</div>
+</a>
+<!-- Email -->
+<a class="flex-1 glass-card p-lg rounded-xl group flex items-center gap-md hover:bg-primary/10 transition-colors" href="mailto:ventasml@iconcase.com.mx">
 <div class="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined text-3xl">mail</span>
 </div>
 <div class="text-left">
-<p class="text-xs font-label-sm text-on-surface-variant uppercase">Correo Electrónico</p>
+<p class="text-xs font-label-sm text-on-surface-variant uppercase">Email Sales</p>
 <p class="text-lg font-bold text-on-surface">ventasml@iconcase.com.mx</p>
 </div>
 </a>
@@ -375,15 +448,59 @@
 </div>
 </section>
 <!-- Footer -->
-<footer class="w-full py-xl px-margin-desktop bg-surface-container-lowest">
-<div class="mt-xl pt-lg border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-md max-w-7xl mx-auto">
+<footer class="w-full py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-lg border-t border-white/5 pt-lg">
 <div class="flex flex-col items-center md:items-start gap-sm">
 <img alt="Icon Case Logo" class="h-8 w-auto object-contain opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6-UE-WNiMgmA0VZFic1yt2jBNK9LOyzUZizK6B0tDDZ-rZSYDQZJ4pxBUgImUSySZZ11jgTSt-CMT9LW4kQMeRoc7LIqpmeXMF8cps-wgfqI-ISShee-YtMzc3oP7jJCMXLI7TsI4R1QE-6yGjLlO5L1lB6CW-6zaR-kOMay8q-HAjcqw8oFgtC39Be-gacQAgm8GcWSCTGrw7kwkm1MVlOVWZ8XHVtQlhecYVF9MyLxe1n77p-NRsJwoaQddi9ucHKsMMUcdfKA"/>
-<span class="text-on-surface-variant font-label-sm">© 2024 ICON CASE. TODOS LOS DERECHOS RESERVADOS.</span>
+<p class="text-on-surface-variant font-label-sm text-center md:text-left uppercase">© 2024 ICON CASE. HIGH-PERFORMANCE PROTECTION.</p>
+</div>
+<div class="flex gap-md md:gap-lg flex-wrap justify-center">
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">WhatsApp</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Email</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
 </div>
 </div>
 </footer>
+<!-- Bottom Mobile Nav (Only visible on small screens) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center py-3 pb-safe bg-surface-container/80 backdrop-blur-xl border-t border-white/10 z-40">
+<a class="flex flex-col items-center text-on-secondary-container hover:text-primary active:text-primary transition-colors" href="#hero">
+<span class="material-symbols-outlined">smartphone</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Inicio</span>
+</a>
+<a class="flex flex-col items-center text-on-secondary-container hover:text-primary active:text-primary transition-colors" href="#products">
+<span class="material-symbols-outlined">bolt</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Hardware</span>
+</a>
+<a class="flex flex-col items-center text-on-secondary-container hover:text-primary active:text-primary transition-colors" href="#presence">
+<span class="material-symbols-outlined">public</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Presencia</span>
+</a>
+<a class="flex flex-col items-center text-on-secondary-container hover:text-primary active:text-primary transition-colors" href="#contacto">
+<span class="material-symbols-outlined">chat</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Soporte</span>
+</a>
+</nav>
 <script>
+        // Menu Toggle Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const closeLinks = document.querySelectorAll('.close-menu');
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('opacity-100');
+            menuOverlay.parentElement.classList.toggle('pointer-events-none');
+            document.body.classList.toggle('overflow-hidden');
+        };
+
+        menuToggle.addEventListener('click', toggleMenu);
+        menuClose.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+        closeLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Parallax and Scroll Effects
         const heroImg = document.getElementById('hero-parallax-img');
         const mapImg = document.getElementById('map-parallax');
         const nav = document.getElementById('main-nav');
@@ -391,7 +508,7 @@
         window.addEventListener('scroll', () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
-            if (heroImg) {
+            if (heroImg && window.innerWidth > 768) {
                 heroImg.style.transform = `translateY(${scrollTop * 0.4}px) scale(1.1)`;
             }
             
@@ -405,13 +522,15 @@
 
             if (scrollTop > 50) {
                 nav.classList.add('bg-background/90', 'h-16');
-                nav.classList.remove('bg-background/50', 'h-20');
+                nav.classList.remove('bg-background/50', 'md:h-20');
             } else {
-                nav.classList.add('bg-background/50', 'h-20');
+                nav.classList.add('bg-background/50');
+                if (window.innerWidth > 768) nav.classList.add('md:h-20');
                 nav.classList.remove('bg-background/90', 'h-16');
             }
         }, { passive: true });
 
+        // Intersection Observer for Reveal Animations
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -425,6 +544,7 @@
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+        // Smooth Scroll for Anchors
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
@@ -432,13 +552,17 @@
                 e.preventDefault();
                 const target = document.querySelector(targetId);
                 if (target) {
-                    target.scrollIntoView({
+                    const navHeight = document.getElementById('main-nav').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
             });
         });
 
+        // Initialize on load
         window.addEventListener('load', () => {
             document.querySelectorAll('.reveal').forEach(el => {
                 const rect = el.getBoundingClientRect();
